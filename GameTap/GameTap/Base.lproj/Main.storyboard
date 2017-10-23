@@ -12,7 +12,7 @@
         <!--Start View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Start View Controller" customClass="StartViewController" customModule="GameTap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartViewController" id="BYZ-38-t0r" userLabel="Start View Controller" customClass="StartViewController" customModule="GameTap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,8 +33,7 @@
                                     <color key="titleColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0dD-a4-mwv"/>
-                                    <segue destination="I1J-UH-WeN" kind="show" id="tAq-F8-oH9"/>
+                                    <segue destination="I1J-UH-WeN" kind="show" identifier="ShowGameScreen" id="tAq-F8-oH9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -52,13 +51,13 @@
         <!--Game View Controller-->
         <scene sceneID="dtW-by-yaq">
             <objects>
-                <viewController id="I1J-UH-WeN" userLabel="Game View Controller" customClass="GameViewController" customModule="GameTap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" id="I1J-UH-WeN" userLabel="Game View Controller" customClass="GameViewController" customModule="GameTap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eet-vg-LFa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score : 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8A-Bg-mw8">
-                                <rect key="frame" x="84" y="91" width="206" height="59"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8A-Bg-mw8">
+                                <rect key="frame" x="113" y="83" width="74" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
@@ -97,8 +96,7 @@
                                     <color key="titleColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonNext:" destination="I1J-UH-WeN" eventType="touchUpInside" id="H82-BD-ymw"/>
-                                    <segue destination="BVI-Kb-rKi" kind="show" id="Gnw-uB-Qqu"/>
+                                    <segue destination="BVI-Kb-rKi" kind="show" identifier="ShowResultScreen" id="FoA-la-LOh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0A-CK-ybL">
@@ -110,7 +108,7 @@
                                     <color key="titleColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonBack:" destination="I1J-UH-WeN" eventType="touchUpInside" id="fpm-ff-faL"/>
+                                    <segue destination="L4o-Ao-c88" kind="unwind" identifier="backToStartFromGame" unwindAction="backToStartViewControl:" id="YKl-kP-OMT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2h-Op-Oiq">
@@ -125,6 +123,13 @@
                                     <action selector="buttonTap2:" destination="I1J-UH-WeN" eventType="touchUpInside" id="iI3-Nm-Xuo"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQ5-o0-KCw" userLabel="LabelScore">
+                                <rect key="frame" x="195" y="83" width="83" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.97336154509999995" green="0.97422960069999998" blue="0.93077256939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="NK1-sD-dYg"/>
@@ -133,17 +138,18 @@
                         <outlet property="buttonTap" destination="PUn-AE-3OP" id="W7c-xt-ytn"/>
                         <outlet property="buttonTap1" destination="h6M-3V-Ksy" id="Rhz-Wz-nf3"/>
                         <outlet property="buttonTap2" destination="G2h-Op-Oiq" id="bsZ-6X-lJ1"/>
-                        <outlet property="labelScore" destination="A8A-Bg-mw8" id="e2v-su-Swp"/>
+                        <outlet property="labelScore" destination="uQ5-o0-KCw" id="Xjl-Bp-lGY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mdZ-x2-Xo9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="L4o-Ao-c88" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="736.79999999999995" y="30.134932533733135"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="9ct-WE-dn2">
             <objects>
-                <viewController id="BVI-Kb-rKi" userLabel="Result View Controller" customClass="ResultViewController" customModule="GameTap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultViewController" id="BVI-Kb-rKi" userLabel="Result View Controller" customClass="ResultViewController" customModule="GameTap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DM2-Yj-VXl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,11 +170,18 @@
                                     <color key="titleColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonMenu:" destination="BVI-Kb-rKi" eventType="touchUpInside" id="W5y-1K-q8U"/>
+                                    <segue destination="hf0-U8-LHj" kind="unwind" identifier="backToStartFromResult" unwindAction="backToStartViewControl:" id="BXI-h3-Tau"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Score : 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIL-S9-Rm8">
-                                <rect key="frame" x="84" y="147" width="206" height="59"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Score : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIL-S9-Rm8">
+                                <rect key="frame" x="84" y="147" width="128" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9a1-yQ-lnF">
+                                <rect key="frame" x="207" y="147" width="128" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
@@ -179,12 +192,13 @@
                         <viewLayoutGuide key="safeArea" id="GBf-5n-mfw"/>
                     </view>
                     <connections>
-                        <outlet property="labelYourScore" destination="KIL-S9-Rm8" id="yp2-Xk-0mQ"/>
+                        <outlet property="labelYourScore" destination="9a1-yQ-lnF" id="Gyl-HP-gvh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBX-KG-AWn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hf0-U8-LHj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1426" y="30"/>
+            <point key="canvasLocation" x="1424.8" y="29.23538230884558"/>
         </scene>
     </scenes>
 </document>
